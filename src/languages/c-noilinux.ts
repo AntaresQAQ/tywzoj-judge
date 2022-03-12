@@ -1,5 +1,5 @@
 export const lang = {
-  name: "cpp-noilinux",
+  name: "c-noilinux",
   sourceFileName: "a.cpp",
   fileExtension: "cpp",
   binarySizeLimit: 5000 * 1024,
@@ -10,7 +10,7 @@ export const lang = {
     // write a shell script or some other stuff,
     // and put it to your sandbox.
     executable: "/usr/bin/gcc-9",
-    parameters: ["gcc-9", sourcePath, "-o", `${outputDirectory}/a.out`, "-lm", "-lstdc++", "-std=c++14", "-fdiagnostics-color=always", !doNotUseX32Abi && "-mx32", "-DONLINE_JUDGE"],
+    parameters: ["gcc-9", sourcePath, "-o", `${outputDirectory}/a.out`, "-std=c11", "-lm", "-fdiagnostics-color=always", !doNotUseX32Abi && "-mx32", "-DONLINE_JUDGE"],
     time: 5000,
     memory: 1024 * 1024 * 1024 * 2,
     process: 10,
