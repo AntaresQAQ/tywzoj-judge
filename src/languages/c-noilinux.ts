@@ -10,7 +10,7 @@ export const lang = {
     // write a shell script or some other stuff,
     // and put it to your sandbox.
     executable: "/usr/bin/gcc-10",
-    parameters: ["gcc-10", sourcePath, "-o", `${outputDirectory}/a.out`, "-std=c11", "-lm", "-fdiagnostics-color=always", !doNotUseX32Abi && "-mx32", "-DONLINE_JUDGE"],
+    parameters: ["gcc-10", sourcePath, "-o", `${outputDirectory}/a.out`, "-std=c11", "-O", "-lm", "-fdiagnostics-color=always", "-DONLINE_JUDGE", !doNotUseX32Abi && "-mx32"],
     time: 5000,
     memory: 1024 * 1024 * 1024 * 2,
     process: 10,
