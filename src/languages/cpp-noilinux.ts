@@ -11,7 +11,7 @@ export const lang = {
     // and put it to your sandbox.
     executable: "/usr/bin/g++-10",
     parameters: ["g++-10", sourcePath, "-o", `${outputDirectory}/a.out`, "-std=c++14", "-O", "-lm", "-fdiagnostics-color=always", !doNotUseX32Abi && "-mx32", "-DONLINE_JUDGE"],
-    time: 5000,
+    time: 10000,
     memory: 1024 * 1024 * 1024 * 2,
     process: 10,
     // This is just a redirection. You can simply ignore this
