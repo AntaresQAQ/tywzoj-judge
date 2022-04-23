@@ -253,8 +253,8 @@ export async function judgeStandard(task: StandardRunTask)
             }
         }
     } finally {
-        tryEmptyDir(workingDir);
-        tryEmptyDir(spjWorkingDir);
+        await tryEmptyDir(workingDir);
+        await tryEmptyDir(spjWorkingDir);
     }
 }
 
@@ -289,8 +289,8 @@ export async function judgeInteraction(task: InteractionRunTask)
 
         await fse.writeFile(pathLib.join(spjWorkingDir, 'code'), userCode);
 
-        pipe1 = syspipe.pipe(),
-            pipe2 = syspipe.pipe();
+        pipe1 = syspipe.pipe();
+        pipe2 = syspipe.pipe();
 
         const [userProgramTaskPromise, stopUser] = await runProgram(userLanguage,
             userBinaryDirectory,
