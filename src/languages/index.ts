@@ -41,14 +41,14 @@ export const languages: Language[] = [
   require('./cpp17-clang'),
   require('./cpp-clang'),
   require('./cpp-noilinux'),
-  // require('./csharp'),
-  // require('./haskell'),
-  // require('./java'),
-  // require('./nodejs'),
-  // require('./pascal'),
-  // require('./python2'),
+  require('./csharp'),
+  require('./haskell'),
+  require('./java'),
+  require('./nodejs'),
+  require('./pascal'),
+  require('./python2'),
   require('./python3'),
-  // require('./ruby'),
+  require('./ruby'),
   // The following languages are dropped now since almost nobody uses them in LibreOJ.
   // They won't be maintained and use it at your own risk!
   /*
