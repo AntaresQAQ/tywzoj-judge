@@ -48,6 +48,15 @@ export class AnswerSubmissionJudger extends JudgerBase {
         await fse.ensureDir(this.tempDirectory);
         try {
             await decompress(this.submissionContent, this.tempDirectory);
+            const files = await fse.readdir(this.tempDirectory);
+            for (const file of files) {
+                const filePath = pathLib.join(this.tempDirectory, file);
+                if ((await fse.stat(filePath)).isDirectory()) {
+                    const subFiles = await fse.readdir(filePath);
+                    await Promise.all(subFiles.map(f => fse.move(pathLib.join(filePath, f), this.tempDirectory)));
+                    await fse.remove(filePath);
+                }
+            }
             return { status: TaskStatus.Done };
         } catch (err) {
             return { status: TaskStatus.Failed, message: `Unable to decompress your answer` + err.toString() };
