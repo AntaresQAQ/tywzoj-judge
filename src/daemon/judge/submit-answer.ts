@@ -54,7 +54,7 @@ export class AnswerSubmissionJudger extends JudgerBase {
                 if ((await fse.stat(filePath)).isDirectory()) {
                     const subFiles = await fse.readdir(filePath);
                     await Promise.all(subFiles.map(f =>
-                        fse.move(pathLib.join(filePath, f), this.tempDirectory, { overwrite: true })
+                        fse.move(pathLib.join(filePath, f), pathLib.join(this.tempDirectory, f), { overwrite: true })
                     ));
                     await fse.remove(filePath);
                 }
